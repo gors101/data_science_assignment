@@ -30,7 +30,7 @@ create table temp as select user_id, event_type, count(*) as type_count
 select 
 	temp.user_id, 
     /*把不止一个的活动类型组合在一起*/
-	group_concat(temp.event_type, ', ') as most_active_type,
+	group_concat(temp.event_type, '') as most_active_type,
 	total_events.event_count
 from 
 	temp
